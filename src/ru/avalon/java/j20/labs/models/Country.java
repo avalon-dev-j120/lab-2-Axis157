@@ -61,6 +61,9 @@ public class Country {
         /*
          * TODO(Студент): Реализовать метод valueOf класса Country
          */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        String code = text.substring(0, text.indexOf(":"));
+        String name = text.substring(text.indexOf(":")+1);
+        
+        return new Country(code, name);
     }
 }
