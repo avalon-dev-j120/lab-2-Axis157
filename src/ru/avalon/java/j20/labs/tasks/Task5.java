@@ -31,7 +31,19 @@ public class Task5 implements Task {
          * 4. С использованием отладчика сравнить полученные ресурсы и
          *    проверить корректность работы программы.
          */
+        String path = "resources.strings/titles";
+        
+        Locale.setDefault(Locale.ENGLISH);
+        ResourceBundle bundle = read(path);
+        String message = bundle.getString("menu.file");
+        System.out.println(message);
+        
+        Locale locale = new Locale("ru");
+        bundle = read(path, locale);
+        String messageLocale = bundle.getString("menu.file");
+        System.out.println(messageLocale);
     }
+    
 
     /**
      * Выполняет чтение локализованных ресурсов с использованием
@@ -41,7 +53,8 @@ public class Task5 implements Task {
      * @return новый экземпляр типа {@link ResourceBundle}
      */
     private ResourceBundle read(String path) {
-        throw new UnsupportedOperationException("Not implement yet!");
+        ResourceBundle bundle = ResourceBundle.getBundle(path);
+        return bundle;
     }
 
     /**
@@ -51,6 +64,7 @@ public class Task5 implements Task {
      * @return новый экземпляр типа {@link ResourceBundle}
      */
     private ResourceBundle read(String path, Locale locale) {
-        throw new UnsupportedOperationException("Not implement yet!");
+        ResourceBundle bundle = ResourceBundle.getBundle(path, locale);
+        return bundle;
     }
 }
